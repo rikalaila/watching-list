@@ -1,0 +1,12 @@
+{
+  "name": "watching-list",
+  "displayName": "watching-list",
+  "expo": {
+    "name": "watching-list",
+    "slug": "watching-list",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
