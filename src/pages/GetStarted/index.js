@@ -6,8 +6,8 @@ import Button from '../../components/Button';
 const GetStarted = () => {
     return (
         <ImageBackground source={BGStarted} style={styles.container}>
-            <Button title="Sign Up" />
-            <Button title="Sign In" type="secondary" />
+            <Button title="Sign Up" onPress={() => alert('Hai')}/>
+            <Button title="Sign In" type="secondary" onPress={() => alert('Ha')}/>
         </ImageBackground>
     );
 };
