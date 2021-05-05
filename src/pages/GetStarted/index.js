@@ -3,7 +3,7 @@ import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { BGStarted } from '../../assets';
 import Button from '../../components/Button';
 
-const GetStarted = (navigation) => {
+const GetStarted = ({navigation}) => {
     return (
         <ImageBackground source={BGStarted} style={styles.container}>
             <Button title="Sign Up" onPress={() => navigation.navigate('SignUp')} />

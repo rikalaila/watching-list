@@ -1,21 +1,19 @@
-import { NavigationHelpersContext } from '@react-navigation/core';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Header } from 'react-native/Libraries/NewAppScreen';
+import {Button, Input, Gap,} from '../../components';
 
-
-const SignUp = (navigation) => {
+const SignUp = ({navigation}) => {
     return (
         <View style={styles.page}>
-            <Header onPress={() => navigation.goBack()} title="Sign Up" />
             <View style={styles.content}>
+                <Text style={styles.text}>Sign Up to Malam Minggu</Text>
                 <Input label="Name" />
                 <Gap height={24} />
                 <Input label="Email" />
                 <Gap height={24} />
                 <Input label="Password" />
                 <Gap height={40} />
-                <Button label="Sign Up" />
+                <Button title="Sign Up" onPress={() => navigation.replace('MainApp')} />
             </View>
         </View>
     );
@@ -25,12 +23,18 @@ export default SignUp;
 
 const styles = StyleSheet.create({
     content: {
+        marginTop: 110,
         padding: 40,
         paddingTop: 0,
     },
     page: {
         backgroundColor: 'rgb(28, 27, 27)',
         flex: 1,
-
+    },
+    text: {
+        color: 'rgb(247, 156, 59)',
+        fontSize: 30,
+        fontWeight: 'bold',
+        marginBottom: 40
     }
 });

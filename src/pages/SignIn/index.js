@@ -2,17 +2,16 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Input, Link, Button, Gap } from '../../components';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
     return (
         <View style={styles.page}>
-            <Text style={styles.title}>SignIn Watching-List</Text>
+            <Text style={styles.title}>Sign In to Malam Minggu</Text>
             <Input label="Email Address" />
             <Gap height={24} />
             <Input label="Password" />
             <Gap height={10} />
-            <Link title="Forgot My Password" size={12} />
             <Gap height={40} />
-            <Button title="Sign In" />
+            <Button title="Sign In" onPress={() => navigation.replace('MainApp')} />
             <Gap height={30} />
             <Link title="Create New Account" size={16} align="center" />
         </View>
@@ -28,10 +27,9 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     title: {
-        fontSize: 20,
-        fontWeight: 600,
-        /*fontFamily: 'Nunito-Semibold',*/
-        color: '#112340',
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'rgb(247, 156, 59)',
         marginTop: 155,
         marginBottom: 40,
     },

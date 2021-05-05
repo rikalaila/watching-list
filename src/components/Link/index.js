@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 const Link = ({ title, size, align }) => {
     return (
-        <View>
+        <View >
             <Text style={styles.text(size, align)}>{title}</Text>
         </View>
     );
@@ -12,11 +12,10 @@ const Link = ({ title, size, align }) => {
 export default Link;
 
 const styles = StyleSheet.create({
-    text: () => (
+    text: (size, align) => (
         {
             fontSize: size,
-            color: '#7D8797',
-            fontFamily: 'Nunito-Regular',
+            color: 'white',
             textDecorationLine: 'underline',
             textAlign: align,
         }

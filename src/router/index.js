@@ -1,8 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { GetStarted, Login, Splash } from '../pages';
-import { defineAnimation } from 'react-native-reanimated';
-import SignIn from '../pages/SignIn';
+import { GetStarted, SignUp, SignIn, Splash } from '../pages';
 
 const Stack = createStackNavigator();
 
@@ -22,7 +20,13 @@ const Router = () => {
             <Stack.Screen
                 name="SignUp"
                 component={SignUp}
-                options={{ headerShown: false }}
+                options={{ headerShown: true, 
+                    headerTitle :false,
+                    headerStyle: {
+                        backgroundColor : 'rgb(28, 27, 27)',
+                      },
+                    headerTintColor : 'rgb(247, 156, 59)',
+                }}
             />
             <Stack.Screen
                 name="SignIn"
