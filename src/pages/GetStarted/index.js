@@ -6,8 +6,8 @@ import Button from '../../components/Button';
 const GetStarted = ({navigation}) => {
     return (
         <ImageBackground source={BGStarted} style={styles.container}>
-            <Button title="Sign Up" onPress={() => navigation.replace('MainApp')}/>
-            <Button title="Sign In" type="secondary" onPress={() => navigation.replace('MainApp')}/>
+            <Button title="Sign Up" onPress={() => navigation.navigate('SignUp')} />
+            <Button title="Sign In" type="secondary" onPress={() => navigation.navigate('SignIn')} />
         </ImageBackground>
     );
 };
