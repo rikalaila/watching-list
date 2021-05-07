@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Input, Link, Button, Gap } from '../../components';
 
-const SignIn = ({navigation}) => {
+const SignIn = ({ navigation }) => {
     return (
         <View style={styles.page}>
             <Text style={styles.title}>Sign In to Malam Minggu</Text>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         color: 'rgb(247, 156, 59)',
-        marginTop: 155,
+        marginTop: 20,
         marginBottom: 40,
     },
 
