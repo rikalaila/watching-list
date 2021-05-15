@@ -13,7 +13,7 @@ const SignIn = ({ navigation }) => {
             <Gap height={40} />
             <Button title="Sign In" onPress={() => navigation.replace('MainApp')} />
             <Gap height={30} />
-            <Link title="Create New Account" size={16} align="center" />
+            <Link title="Create New Account" size={16} align="center" onPress={() => navigation.navigate('SignUp')} />
         </View>
     );
 };
@@ -25,12 +25,13 @@ const styles = StyleSheet.create({
         padding: 40,
         backgroundColor: 'rgb(28, 27, 27)',
         flex: 1,
+        justifyContent: 'center',
     },
     title: {
         fontSize: 30,
         fontWeight: 'bold',
         color: 'rgb(247, 156, 59)',
-        marginTop: 20,
+        marginTop: 0,
         marginBottom: 40,
     },
 

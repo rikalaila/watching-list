@@ -7,5 +7,6 @@ import UploadPhoto from './UploadPhoto';
 import Home from './Home';
 import Browse from './Browse';
 import Profile from './Profile';
+import UpdateProfile from './UpdateProfile';
 
-export { Splash, GetStarted, SignUp, SignIn, UploadPhoto, Home, Browse, Profile };
+export { Splash, GetStarted, SignUp, SignIn, UploadPhoto, Home, Browse, Profile, UpdateProfile };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { GetStarted, Splash, SignUp, SignIn, UploadPhoto, Home, Browse, Profile } from '../pages';
+import { GetStarted, Splash, SignUp, SignIn, UploadPhoto, Home, Browse, Profile, UpdateProfile } from '../pages';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -72,7 +72,14 @@ const Router = () => {
       <Stack.Screen
         name="SignIn"
         component={SignIn}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: true,
+          headerTitle: false,
+          headerStyle: {
+            backgroundColor: 'rgb(28, 27, 27)',
+          },
+          headerTintColor: 'rgb(247, 156, 59)',
+        }}
       />
       <Stack.Screen
         name="UploadPhoto"
@@ -82,6 +89,11 @@ const Router = () => {
       <Stack.Screen
         name="MainApp"
         component={MainApp}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="UpdateProfile"
+        component={UpdateProfile}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

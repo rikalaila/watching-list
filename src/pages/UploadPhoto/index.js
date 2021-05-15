@@ -31,7 +31,7 @@ export default UploadPhoto;
 
 const styles = StyleSheet.create({
     content: {
-        marginTop: 20,
+        marginTop: 0,
         paddingHorizontal: 40,
         paddingBottom: 40,
         flex: 1,

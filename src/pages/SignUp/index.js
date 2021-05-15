@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
         padding: 40,
         paddingTop: 0,
+        justifyContent: 'center',
     },
     page: {
         backgroundColor: 'rgb(28, 27, 27)',
