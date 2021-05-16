@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {Button, Input, Gap,} from '../../components';
+import { Button, Input, Gap, } from '../../components';
 
-const SignUp = ({navigation}) => {
+const SignUp = ({ navigation }) => {
     return (
         <View style={styles.page}>
             <View style={styles.content}>
@@ -13,7 +13,7 @@ const SignUp = ({navigation}) => {
                 <Gap height={24} />
                 <Input label="Password" />
                 <Gap height={40} />
-                <Button title="Sign Up" onPress={() => navigation.replace('MainApp')} />
+                <Button title="Continue" onPress={() => navigation.replace('MainApp')} />
             </View>
         </View>
     );
@@ -23,9 +23,10 @@ export default SignUp;
 
 const styles = StyleSheet.create({
     content: {
-        marginTop: 110,
+        marginTop: 20,
         padding: 40,
         paddingTop: 0,
+        justifyContent: 'center',
     },
     page: {
         backgroundColor: 'rgb(28, 27, 27)',
@@ -35,6 +36,7 @@ const styles = StyleSheet.create({
         color: 'rgb(247, 156, 59)',
         fontSize: 30,
         fontWeight: 'bold',
-        marginBottom: 40
+        marginBottom: 40,
+        textAlign: 'center',
     }
 });
