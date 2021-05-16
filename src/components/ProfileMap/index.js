@@ -1,14 +1,14 @@
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
-import { Remove, UserPhoto } from '../../assets'
+import { Error, UserPhoto } from '../../assets'
 
 
-const ProfileMap = ({ name, desc }) => {
+const ProfileMap = ({ name, desc, isRemove }) => {
     return (
         <View style={styles.container}>
             <View style={styles.borderProfile}>
                 <Image source={UserPhoto} style={styles.avatar} />
-                <Remove style={styles.removePhoto} />
+                {isRemove && <Error style={styles.removePhoto} />}
             </View>
             { name && (
                 <View>
@@ -52,6 +52,8 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     removePhoto: {
+        height: 48,
+        width: 48,
         position: 'absolute',
         right: 8,
         bottom: 8,

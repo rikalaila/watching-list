@@ -13,7 +13,7 @@ const SignUp = ({ navigation }) => {
                 <Gap height={24} />
                 <Input label="Password" />
                 <Gap height={40} />
-                <Button title="Continue" onPress={() => navigation.replace('UploadPhoto')} />
+                <Button title="Continue" onPress={() => navigation.replace('MainApp')} />
             </View>
         </View>
     );

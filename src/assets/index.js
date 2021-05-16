@@ -6,7 +6,8 @@ import Add from './add-button.svg';
 import Remove from './remove-button.svg';
 import NextArrow from './next.svg';
 import EditProfile from './edit-profile.png';
-import LogOut from './log-out.png'
+import LogOut from './log-out.png';
+import Error from './error.svg';
+import Exit from './exit.png';
 
-
-export { Logo, BGStarted, UserPhoto, Add, Remove, NextArrow, EditProfile, LogOut };
+export { Logo, BGStarted, UserPhoto, Add, Remove, NextArrow, EditProfile, LogOut, Error, Exit };

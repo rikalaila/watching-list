@@ -22,7 +22,7 @@ const Profile = ({ navigation }) => {
                 />
                 <List
                     name="Log Out"
-                    type="LogOut"
+                    type="NextArrow"
                     onPress={() => navigation.navigate('Splash')}
                 />
             </View>

@@ -1,14 +1,14 @@
 import React from 'react';
-import { Button, ScrollView, StyleSheet, Text, View, } from 'react-native';
-import { Input, ProfileMap } from '../../components';
+import { ScrollView, StyleSheet, Text, View, } from 'react-native';
+import { Input, ProfileMap, Gap, Button } from '../../components';
 
-const UpdateProfile = () => {
+const UpdateProfile = ({ navigation }) => {
     return (
         <View style={styles.page}>
-            <Text>Edit Profile</Text>
+            <Text style={styles.text}>Edit Profile</Text>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.content}>
-                    <ProfileMap />
+                    <ProfileMap isRemove />
                     <Gap height={26} />
                     <Input label="Full Name" />
                     <Gap height={24} />
@@ -16,7 +16,7 @@ const UpdateProfile = () => {
                     <Gap height={24} />
                     <Input label="Password" />
                     <Gap height={40} />
-                    <Button title="Save Profile" />
+                    <Button title="Save Profile" onPress={() => navigation.navigate('Profile')} />
                 </View>
             </ScrollView>
         </View>
@@ -33,7 +33,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     content: {
-        padding: 40,
         paddingTop: 0,
+    },
+    text: {
+        color: 'rgb(247, 156, 59)',
+        fontSize: 30,
+        fontWeight: 'bold',
+        marginBottom: 20,
+        textAlign: 'center',
+    },
+    button: {
+        color: 'rgb(247, 156, 59)',
     }
 })
