@@ -74,7 +74,7 @@ const SignUp = ({navigation}) => {
         //     })
         // }, []);
 
-        navigation.replace('MainApp')
+        navigation.replace('SignIn')
     }
     return (
         <View style={styles.page}>
