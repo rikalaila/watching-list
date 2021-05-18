@@ -73,6 +73,7 @@ const SignUp = ({navigation}) => {
                 <Gap height={24} />
                 <Input label="Password" type="password" />
                 <Gap height={40} />
+<<<<<<< HEAD
                 <Button title="Sign Up" onPress={() => navigation.replace('MainApp')} /> */}
 
                 <TextInput placeholder="Name" placeholderTextColor="white" style={styles.input} value={name} onChangeText={(value) => setName(value)} />
@@ -86,6 +87,9 @@ const SignUp = ({navigation}) => {
                 {/* <Button title="Sign Up" onPress={() => navigation.replace('MainApp')} /> */}
                 <Button title="Sign Up" onPress={submit} />
                 
+=======
+                <Button title="Continue" onPress={() => navigation.replace('MainApp')} />
+>>>>>>> e433aa5bb2d665910c78346a475e0feab6052fd5
             </View>
         </View>
     );
@@ -95,9 +99,10 @@ export default SignUp;
 
 const styles = StyleSheet.create({
     content: {
-        marginTop: 110,
+        marginTop: 20,
         padding: 40,
         paddingTop: 0,
+        justifyContent: 'center',
     },
     input: {
         borderWidth: 1,
@@ -116,6 +121,7 @@ const styles = StyleSheet.create({
         color: 'rgb(247, 156, 59)',
         fontSize: 30,
         fontWeight: 'bold',
-        marginBottom: 40
+        marginBottom: 40,
+        textAlign: 'center',
     }
 });
