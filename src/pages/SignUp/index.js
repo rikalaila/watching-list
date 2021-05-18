@@ -1,12 +1,13 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { withSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button, Input, Gap, } from '../../components';
 import axios from 'axios';
-import { useEffect } from 'react';
+
 
 const SignUp = ({navigation}) => {
+    
     const emuIP = "http://192.168.137.1";
 
     const [name, setName] = useState("");
@@ -30,12 +31,12 @@ const SignUp = ({navigation}) => {
         //     "password_confirmation": "123123123",
         //   })
 
-        // axios.post('http://192.168.137.1/auth/register', data)
-        // .then((response) => {
-        //     console.log(response);
-        // }, (error) => {
-        //     console.log(error);
-        // });
+        axios.post(`http://192.168.137.1:8000/auth/register`, data)
+        .then((response) => {
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
         
         // .then(res => {
         //     console.log(res);
@@ -46,20 +47,32 @@ const SignUp = ({navigation}) => {
         //     // setPassword_confirmation("");
         // })
 
-        useEffect(() => {
-            fetch('http://192.168.137.1/auth/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(console.log("res : ", response))
-            .then(json => {
-                console.log('post response : ', json)
-            })
-        }, []);
+        // const requestOptions = {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(data)
+        // };
+        // fetch(`http://192.168.137.1/auth/register`, requestOptions)
+        // .then(response => response.json())
+        // .then(console.log("res : ", response))
+        // .then(json => {
+        //     console.log('post response : ', json)
+        // })
+
+        // useEffect(() => {
+        //     fetch('http://192.168.137.1/auth/register', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify(data)
+        //     })
+        //     .then(response => response.json())
+        //     .then(console.log("res : ", response))
+        //     .then(json => {
+        //         console.log('post response : ', json)
+        //     })
+        // }, []);
 
         navigation.replace('MainApp')
     }
@@ -73,7 +86,6 @@ const SignUp = ({navigation}) => {
                 <Gap height={24} />
                 <Input label="Password" type="password" />
                 <Gap height={40} />
-<<<<<<< HEAD
                 <Button title="Sign Up" onPress={() => navigation.replace('MainApp')} /> */}
 
                 <TextInput placeholder="Name" placeholderTextColor="white" style={styles.input} value={name} onChangeText={(value) => setName(value)} />
@@ -87,9 +99,6 @@ const SignUp = ({navigation}) => {
                 {/* <Button title="Sign Up" onPress={() => navigation.replace('MainApp')} /> */}
                 <Button title="Sign Up" onPress={submit} />
                 
-=======
-                <Button title="Continue" onPress={() => navigation.replace('MainApp')} />
->>>>>>> e433aa5bb2d665910c78346a475e0feab6052fd5
             </View>
         </View>
     );
