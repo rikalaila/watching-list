@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { Input, Link, Button, Gap } from '../../components';
 import axios from 'axios';
+import { AsyncStorage } from 'react-native';
 
 const SignIn = ({ navigation }) => {
 
@@ -26,8 +27,6 @@ const SignIn = ({ navigation }) => {
 
         navigation.replace('MainApp')
     }
-
-
 
     return (
         <View style={styles.page}>

@@ -40,12 +40,15 @@ const Browse= () => {
     }) 
   }
 
-  const [background,setBackground] = useState({
-    uri: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9',
-    name: 'Avengers: End Game',
-    stat: '2019 ‧ Action/Sci-fi ‧ 3h 2m',
-    desc: 'After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance.'
-  })
+
+  setgallerry
+
+  // const [background,setBackground] = useState({
+  //   uri: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9',
+  //   name: 'Avengers: End Game',
+  //   stat: '2019 ‧ Action/Sci-fi ‧ 3h 2m',
+  //   desc: 'After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance.'
+  // })
 
   const [gallery, setgallery] = useState([
 
