@@ -61,13 +61,18 @@ const Browse= () => {
     // { image:'https://i.pinimg.com/originals/99/03/9a/99039a6afb682e42c9a12556071b38c9.jpg', title: 'John Wick Chapter 3',released: '2019 ‧ Action/Thriller ‧ 2h 10m', key: '5', desc: 'John Wick is declared excommunicado and a hefty bounty is set on him after he murders an international crime lord. He sets out to seek help to save himself from ruthless hitmen and bounty hunters.' },
   ]);
 
-  // const [list, setList] = useState([
+  const [list, setList] = useState([
+    {image:image_list[0], title:title_list[0],released: release_date[0] ,key: id_list[0] , desc: overview_list[0]},
+    {image:image_list[1], title:title_list[1],released: release_date[1] ,key: id_list[1] , desc: overview_list[1]},
+    {image:image_list[2], title:title_list[2],released: release_date[2] ,key: id_list[2] , desc: overview_list[2]},
+    {image:image_list[3], title:title_list[3],released: release_date[3] ,key: id_list[3] , desc: overview_list[3]},
+    {image:image_list[4], title:title_list[4],released: release_date[4] ,key: id_list[4] , desc: overview_list[4]},
   //   { image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJKLiEyyz1Q9RC8EBYl3ijr3nuGeyO2ETmwy6Kdq0AQtD0elWD', key: '1' },
   //   { image:'https://upload.wikimedia.org/wikipedia/en/7/7a/1917poster.jpg',key: '2' },
   //   { image:'https://upload.wikimedia.org/wikipedia/en/b/bd/Spider-Man_Far_From_Home_poster.jpg', key: '3'},
   //   { image:'https://in.bmscdn.com/iedb/movies/images/mobile/thumbnail/large/spies-in-disguise-et00072276-10-03-2018-03-41-39.jpg', key: '4', },
   //   { image:'https://m.media-amazon.com/images/M/MV5BMTE0YWFmOTMtYTU2ZS00ZTIxLWE3OTEtYTNiYzBkZjViZThiXkEyXkFqcGdeQXVyODMzMzQ4OTI@._V1_.jpg', key: '5' },
-  // ]);
+  ]);
 
   const carouselRef = useRef(null);
 
