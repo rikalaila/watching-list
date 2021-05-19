@@ -3,7 +3,16 @@ import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { Input, Link, Button, Gap } from '../../components';
 import axios from 'axios';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
+const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem('token', value)
+    } catch (e) {
+      // saving error
+    }
+  }
 
 const SignIn = ({ navigation }) => {
 
@@ -20,11 +29,12 @@ const SignIn = ({ navigation }) => {
 
         axios.post(`http://192.168.137.1:8000/auth/login`, data)
         .then((response) => {
-            console.log(response);
+            console.log(response.data);
+            // storeData(response.data.token);
         }, (error) => {
             console.log(error);
         });
-
+        
         navigation.replace('MainApp')
     }
 
@@ -41,7 +51,7 @@ const SignIn = ({ navigation }) => {
 
             <TextInput placeholder="Email" placeholderTextColor="white" style={styles.input} value={email} onChangeText={(value) => setEmail(value)} />
             <Gap height={24} />
-            <TextInput placeholder="Password" placeholderTextColor="blue" style={styles.input} value={password} onChangeText={(value) => setPassword(value)} secureTextEntry={true} />
+            <TextInput placeholder="Password" placeholderTextColor="white" style={styles.input} value={password} onChangeText={(value) => setPassword(value)} secureTextEntry={true} />
             <Gap height={50} />
             {/* <Button title="Sign Up" onPress={submit} /> */}
             <Button title="Sign In" onPress={submit} />

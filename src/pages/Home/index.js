@@ -15,82 +15,105 @@ var title_list = []
 var release_date = []
 var image_list = []
 
+
+const getData = async () => {
+  try {
+    const value = await AsyncStorage.getItem('token')
+    if(value !== null) {
+      // value previously stored
+    }
+  } catch(e) {
+    // error reading value
+  }
+}
+
+var USER_TOKEN = getData()
+const AuthStr = 'Bearer '.concat(USER_TOKEN);
+
 const Home = () => {
 
-  useEffect( () => {
-    getWatchingId();
-    getWatchedId();
-    getToWatchId();
-    getWatchingData();
-    getWatchedData();
-    getToWatchData();
-  }, [])
+  // useEffect( () => {
+  //   getWatchingId();
+  //   getWatchedId();
+  //   getToWatchId();
+  //   getWatchingData();
+  //   getWatchedData();
+  //   getToWatchData();
+  // }, [])
 
-  const getWatchingId = () => {
-    axios.get('http://192.168.137.1:8000/library/get_watching_id')
-    .then(res => {
-      console.log('res:' , res)
-      var myObj = res.data
-      var result_length = res.data.results.length
-      console.log('result_length:' , result_length)
-      for (var i = 0; i < result_length; i++) {
-        watching_id_list.push(myObj.results[i].watching_id);
-      }
-      console.log(watching_id_list)
-    }) 
-  }
+  // const getWatchingId = () => {
+  //   axios.get('http://192.168.137.1:8000/library/get_watching_id', { headers: { Authorization: AuthStr } })
+  //   .then(response => {
+  //       // If request is good...
+  //       console.log(response.data);
+  //    })
+  //   .then(res => {
+  //     console.log('res:' , res)
+  //     var myObj = res.data
+  //     var result_length = res.data.results.length
+  //     console.log('result_length:' , result_length)
+  //     for (var i = 0; i < result_length; i++) {
+  //       watching_id_list.push(myObj.results[i].watching_id);
+  //     }
+  //     console.log(watching_id_list)
+  //   }) 
+  // }
 
-  const getWatchedId = () => {
-    axios.get('http://192.168.137.1:8000/library/get_watched_id', {
-      headers: {
-        'Authorization': `bearer ${access_token}`
-      }
-    })
-    .then(res => {
-      console.log('res:' , res)
-      var myObj = res.data
-      var result_length = res.data.results.length
-      console.log('result_length:' , result_length)
-      for (var i = 0; i < result_length; i++) {
-        watched_id_list.push(myObj.results[i].watching_id);
-      }
-      console.log(watched_id_list)
-    }) 
-  }
+  // const getWatchedId = () => {
+  //   axios.get('http://192.168.137.1:8000/library/get_watched_id', { headers: { Authorization: AuthStr } })
+  //   .then(response => {
+  //       // If request is good...
+  //       console.log(response.data);
+  //    })
+  //   .then(res => {
+  //     console.log('res:' , res)
+  //     var myObj = res.data
+  //     var result_length = res.data.results.length
+  //     console.log('result_length:' , result_length)
+  //     for (var i = 0; i < result_length; i++) {
+  //       watched_id_list.push(myObj.results[i].watching_id);
+  //     }
+  //     console.log(watched_id_list)
+  //   }) 
+  // }
 
-  const getToWatchId = () => {
-    axios.get('http://192.168.137.1:8000/library/get_to_watch_id')
-    .then(res => {
-      console.log('res:' , res)
-      var myObj = res.data
-      var result_length = res.data.results.length
-      console.log('result_length:' , result_length)
-      for (var i = 0; i < result_length; i++) {
-        to_watch_id_list.push(myObj.results[i].watching_id);
-      }
-      console.log(to_watch_id_list)
-    }) 
-  }
+  // const getToWatchId = () => {
+  //   axios.get('http://192.168.137.1:8000/library/get_to_watch_id', { headers: { Authorization: AuthStr } })
+  //   .then(response => {
+  //       // If request is good...
+  //       console.log(response.data);
+  //    })
+  //   .then(res => {
+  //     console.log('res:' , res)
+  //     var myObj = res.data
+  //     var result_length = res.data.results.length
+  //     console.log('result_length:' , result_length)
+  //     for (var i = 0; i < result_length; i++) {
+  //       to_watch_id_list.push(myObj.results[i].watching_id);
+  //     }
+  //     console.log(to_watch_id_list)
+  //   }) 
+  // }
 
-
-  const getWatchingData = () => {
-    axios.get('https://api.themoviedb.org/3/movie/' + movie_id +'?api_key=161b61c9dfebca02c100c2062fe725c5&language=en-US')
-    .then(res => {
-      console.log('res:' , res)
-      var myObj = res.data
-      var result_length = res.data.results.length
-      console.log('result_length:' , result_length)
-      for (var i = 0; i < result_length; i++) {
-        id_list.push(myObj.results[i].id);
-        title_list.push(myObj.results[i].original_title);
-        overview_list.push(myObj.results[i].overview);
-        var temp = myObj.results[i].release_date;
-        release_date.push(temp.substring(0, 4));
-        image_list.push( "http://image.tmdb.org/t/p/w780" + myObj.results[i].poster_path)
-      }
-      console.log(image_list)
-    }) 
-  }
+  // var movie_id = "567189"
+  // const getWatchingData = () => {
+  //   axios.get('https://api.themoviedb.org/3/movie/' + movie_id +'?api_key=161b61c9dfebca02c100c2062fe725c5&language=en-US')
+  //   .then(res => {
+  //     console.log('res:' , res)
+  //     var myObj = res.data
+  //     var result_length = res.data.results.length
+  //     console.log('result_length:' , result_length)
+  //     for (var i = 0; i < result_length; i++) {
+  //       id_list.push(myObj.results[i].id);
+  //       title_list.push(myObj.results[i].original_title);
+  //       overview_list.push(myObj.results[i].overview);
+  //       var temp = myObj.results[i].release_date;
+  //       release_date.push(temp.substring(0, 4));
+  //       image_list.push( "http://image.tmdb.org/t/p/w780" + myObj.results[i].poster_path)
+  //     }
+  //     console.log(image_list)
+  //   }) 
+  // }
 
   
 
@@ -121,14 +144,14 @@ const Home = () => {
     { image: 'https://i.pinimg.com/originals/99/03/9a/99039a6afb682e42c9a12556071b38c9.jpg', title: 'John Wick Chapter 3', released: '2019 ‧ Action/Thriller ‧ 2h 10m', key: '5' },
   ]);
 
-  const [gallery, setgallery] = useState([
+  // const [gallery, setgallery] = useState([
 
-    { image: 'https://www.gstatic.com/tv/thumb/v22vodart/15879807/p15879807_v_v8_aa.jpg', title: 'The Irish Man', released: '2019 ‧ Crime/Drama ‧ 3h 30m', key: '4' },
-    { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9', title: 'Avengers: End Game', released: '2019 ‧ Action/Sci-fi ‧ 3h 2m', key: '1' },
-    { image: 'https://www.spotlightstheatre.co.uk/wordpress/wp-content/uploads/2019/11/f_frozen2_header_mobile_18432_d258f93f.jpeg', title: 'Frozen II', released: '2019 ‧ Animation/Musical ‧ 1h 43m', key: '2' },
-    { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxo7Naxu0tjuSEZ9_faYL--aWjx8V5TKr4q2YeenYKXXik-T5P', title: 'Alita: Battle Angel', released: '2019 ‧ Action/Sci-fi ‧ 2h 2m', key: '3' },
-    { image: 'https://i.pinimg.com/originals/99/03/9a/99039a6afb682e42c9a12556071b38c9.jpg', title: 'John Wick Chapter 3', released: '2019 ‧ Action/Thriller ‧ 2h 10m', key: '5' },
-  ]);
+  //   { image: 'https://www.gstatic.com/tv/thumb/v22vodart/15879807/p15879807_v_v8_aa.jpg', title: 'The Irish Man', released: '2019 ‧ Crime/Drama ‧ 3h 30m', key: '4' },
+  //   { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9', title: 'Avengers: End Game', released: '2019 ‧ Action/Sci-fi ‧ 3h 2m', key: '1' },
+  //   { image: 'https://www.spotlightstheatre.co.uk/wordpress/wp-content/uploads/2019/11/f_frozen2_header_mobile_18432_d258f93f.jpeg', title: 'Frozen II', released: '2019 ‧ Animation/Musical ‧ 1h 43m', key: '2' },
+  //   { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxo7Naxu0tjuSEZ9_faYL--aWjx8V5TKr4q2YeenYKXXik-T5P', title: 'Alita: Battle Angel', released: '2019 ‧ Action/Sci-fi ‧ 2h 2m', key: '3' },
+  //   { image: 'https://i.pinimg.com/originals/99/03/9a/99039a6afb682e42c9a12556071b38c9.jpg', title: 'John Wick Chapter 3', released: '2019 ‧ Action/Thriller ‧ 2h 10m', key: '5' },
+  // ]);
 
   const [list, setList] = useState([
     // { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJKLiEyyz1Q9RC8EBYl3ijr3nuGeyO2ETmwy6Kdq0AQtD0elWD', key: '1' },
@@ -191,7 +214,7 @@ const Home = () => {
               <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginLeft: 10, marginVertical: 10 }}>To Watch</Text>
               <View style={styles.carouselContainerView}>
                 <Carousel
-                  data={toWatch}
+                  data={watched}
                   renderItem={renderItem}
                   sliderWidth={sliderWidth}
                   itemWidth={sliderWidth}
@@ -205,7 +228,7 @@ const Home = () => {
               <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginLeft: 10, marginVertical: 10 }}>Watched</Text>
               <View style={styles.carouselContainerView}>
                 <Carousel
-                  data={watched}
+                  data={toWatch}
                   renderItem={renderItem}
                   sliderWidth={sliderWidth}
                   itemWidth={sliderWidth}
