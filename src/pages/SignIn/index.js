@@ -29,8 +29,9 @@ const SignIn = ({ navigation }) => {
 
         axios.post(`http://192.168.137.1:8000/auth/login`, data)
         .then((response) => {
-            console.log(response.data);
-            // storeData(response.data.token);
+            var json = JSON.parse(response.request._response);
+            console.log("token : " + json.token);
+            storeData(json.token);
         }, (error) => {
             console.log(error);
         });

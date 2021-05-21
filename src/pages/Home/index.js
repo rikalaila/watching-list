@@ -15,6 +15,21 @@ var title_list = []
 var release_date = []
 var image_list = []
 
+var watching_title_list = []
+var watching_overview_list = []
+var watching_release_date = []
+var watching_image_list = []
+
+var watched_title_list = []
+var watched_overview_list = []
+var watched_release_date = []
+var watched_image_list = []
+
+var to_watch_title_list = []
+var to_watch_overview_list = []
+var to_watch_release_date = []
+var to_watch_image_list = []
+
 
 const getData = async () => {
   try {
@@ -32,116 +47,172 @@ const AuthStr = 'Bearer '.concat(USER_TOKEN);
 
 const Home = () => {
 
-  // useEffect( () => {
-  //   getWatchingId();
-  //   getWatchedId();
-  //   getToWatchId();
-  //   getWatchingData();
-  //   getWatchedData();
-  //   getToWatchData();
-  // }, [])
+  useEffect( () => {
+    getWatchingId();
+    getWatchedId();
+    getToWatchId();
+    getWatchingData();
+    getWatchedData();
+    getToWatchData();
+  }, [])
 
-  // const getWatchingId = () => {
-  //   axios.get('http://192.168.137.1:8000/library/get_watching_id', { headers: { Authorization: AuthStr } })
-  //   .then(response => {
-  //       // If request is good...
-  //       console.log(response.data);
-  //    })
-  //   .then(res => {
-  //     console.log('res:' , res)
-  //     var myObj = res.data
-  //     var result_length = res.data.results.length
-  //     console.log('result_length:' , result_length)
-  //     for (var i = 0; i < result_length; i++) {
-  //       watching_id_list.push(myObj.results[i].watching_id);
-  //     }
-  //     console.log(watching_id_list)
-  //   }) 
-  // }
+  const getWatchingId = () => {
+    axios.get('http://192.168.137.1:8000/library/get_watching_id', { headers: { Authorization: AuthStr } })
+    .then(response => {
+        // If request is good...
+        console.log(response.data);
+     })
+    .then(res => {
+      console.log('res:' , res)
+      var myObj = res.data
+      var result_length = res.data.results.length
+      console.log('result_length:' , result_length)
+      for (var i = 0; i < result_length; i++) {
+        watching_id_list.push(myObj.results[i].watching_id);
+      }
+      console.log(watching_id_list)
+    }) 
+  }
 
-  // const getWatchedId = () => {
-  //   axios.get('http://192.168.137.1:8000/library/get_watched_id', { headers: { Authorization: AuthStr } })
-  //   .then(response => {
-  //       // If request is good...
-  //       console.log(response.data);
-  //    })
-  //   .then(res => {
-  //     console.log('res:' , res)
-  //     var myObj = res.data
-  //     var result_length = res.data.results.length
-  //     console.log('result_length:' , result_length)
-  //     for (var i = 0; i < result_length; i++) {
-  //       watched_id_list.push(myObj.results[i].watching_id);
-  //     }
-  //     console.log(watched_id_list)
-  //   }) 
-  // }
+  const getWatchedId = () => {
+    axios.get('http://192.168.137.1:8000/library/get_watched_id', { headers: { Authorization: AuthStr } })
+    .then(response => {
+        // If request is good...
+        console.log(response.data);
+     })
+    .then(res => {
+      console.log('res:' , res)
+      var myObj = res.data
+      var result_length = res.data.results.length
+      console.log('result_length:' , result_length)
+      for (var i = 0; i < result_length; i++) {
+        watched_id_list.push(myObj.results[i].watching_id);
+      }
+      console.log(watched_id_list)
+    }) 
+  }
 
-  // const getToWatchId = () => {
-  //   axios.get('http://192.168.137.1:8000/library/get_to_watch_id', { headers: { Authorization: AuthStr } })
-  //   .then(response => {
-  //       // If request is good...
-  //       console.log(response.data);
-  //    })
-  //   .then(res => {
-  //     console.log('res:' , res)
-  //     var myObj = res.data
-  //     var result_length = res.data.results.length
-  //     console.log('result_length:' , result_length)
-  //     for (var i = 0; i < result_length; i++) {
-  //       to_watch_id_list.push(myObj.results[i].watching_id);
-  //     }
-  //     console.log(to_watch_id_list)
-  //   }) 
-  // }
+  const getToWatchId = () => {
+    axios.get('http://192.168.137.1:8000/library/get_to_watch_id', { headers: { Authorization: AuthStr } })
+    .then(response => {
+        // If request is good...
+        console.log(response.data);
+     })
+    .then(res => {
+      console.log('res:' , res)
+      var myObj = res.data
+      var result_length = res.data.results.length
+      console.log('result_length:' , result_length)
+      for (var i = 0; i < result_length; i++) {
+        to_watch_id_list.push(myObj.results[i].watching_id);
+      }
+      console.log(to_watch_id_list)
+    }) 
+  }
 
-  // var movie_id = "567189"
-  // const getWatchingData = () => {
-  //   axios.get('https://api.themoviedb.org/3/movie/' + movie_id +'?api_key=161b61c9dfebca02c100c2062fe725c5&language=en-US')
-  //   .then(res => {
-  //     console.log('res:' , res)
-  //     var myObj = res.data
-  //     var result_length = res.data.results.length
-  //     console.log('result_length:' , result_length)
-  //     for (var i = 0; i < result_length; i++) {
-  //       id_list.push(myObj.results[i].id);
-  //       title_list.push(myObj.results[i].original_title);
-  //       overview_list.push(myObj.results[i].overview);
-  //       var temp = myObj.results[i].release_date;
-  //       release_date.push(temp.substring(0, 4));
-  //       image_list.push( "http://image.tmdb.org/t/p/w780" + myObj.results[i].poster_path)
-  //     }
-  //     console.log(image_list)
-  //   }) 
-  // }
+  var watching_length = watching_id_list.length
+  for (var i = 0; i < watching_length; i++) {
+    const getWatchingData = () => {
+      axios.get('https://api.themoviedb.org/3/movie/' + watching_id_list[i] +'?api_key=161b61c9dfebca02c100c2062fe725c5&language=en-US')
+      .then(res => {
+        console.log('res:' , res)
+        var myObj = res.data
+        var result_length = res.data.results.length
+        console.log('result_length:' , result_length)
+        for (var i = 0; i < result_length; i++) {
+          watching_title_list.push(myObj.results[i].original_title);
+          watching_overview_list.push(myObj.results[i].overview);
+          var temp = myObj.results[i].release_date;
+          watching_release_date.push(temp.substring(0, 4));
+          watching_image_list.push( "http://image.tmdb.org/t/p/w780" + myObj.results[i].poster_path)
+        }
+        // console.log(image_list)
+      }) 
+    }
+  }
+
+  var watched_length = watched_id_list.length
+  for (var i = 0; i < watched_length; i++) {
+    const getWatchedData = () => {
+      axios.get('https://api.themoviedb.org/3/movie/' + watched_id_list[i] +'?api_key=161b61c9dfebca02c100c2062fe725c5&language=en-US')
+      .then(res => {
+        console.log('res:' , res)
+        var myObj = res.data
+        var result_length = res.data.results.length
+        console.log('result_length:' , result_length)
+        for (var i = 0; i < result_length; i++) {
+          watched_title_list.push(myObj.results[i].original_title);
+          watched_overview_list.push(myObj.results[i].overview);
+          var temp = myObj.results[i].release_date;
+          watched_release_date.push(temp.substring(0, 4));
+          watched_image_list.push( "http://image.tmdb.org/t/p/w780" + myObj.results[i].poster_path)
+        }
+        // console.log(image_list)
+      }) 
+    }
+  }
+
+  var to_watch_length = to_watch_id_list.length
+  for (var i = 0; i < to_watch_length; i++) {
+    const getToWatchData = () => {
+      axios.get('https://api.themoviedb.org/3/movie/' + to_watch_length[i] +'?api_key=161b61c9dfebca02c100c2062fe725c5&language=en-US')
+      .then(res => {
+        console.log('res:' , res)
+        var myObj = res.data
+        var result_length = res.data.results.length
+        console.log('result_length:' , result_length)
+        for (var i = 0; i < result_length; i++) {
+          to_watch_title_list.push(myObj.results[i].original_title);
+          to_watch_overview_list.push(myObj.results[i].overview);
+          var temp = myObj.results[i].release_date;
+          to_watch_release_date.push(temp.substring(0, 4));
+          to_watch_image_list.push( "http://image.tmdb.org/t/p/w780" + myObj.results[i].poster_path)
+        }
+        // console.log(image_list)
+      }) 
+    }
+  }
+      
 
   
 
   const [watching, setWatching] = useState([
 
-    { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9', title: 'Avengers: End Game', released: '2019 ‧ Action/Sci-fi ‧ 3h 2m', key: '1' },
-    { image: 'https://www.spotlightstheatre.co.uk/wordpress/wp-content/uploads/2019/11/f_frozen2_header_mobile_18432_d258f93f.jpeg', title: 'Frozen II', released: '2019 ‧ Animation/Musical ‧ 1h 43m', key: '2' },
-    { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxo7Naxu0tjuSEZ9_faYL--aWjx8V5TKr4q2YeenYKXXik-T5P', title: 'Alita: Battle Angel', released: '2019 ‧ Action/Sci-fi ‧ 2h 2m', key: '3' },
-    { image: 'https://www.gstatic.com/tv/thumb/v22vodart/15879807/p15879807_v_v8_aa.jpg', title: 'The Irish Man', released: '2019 ‧ Crime/Drama ‧ 3h 30m', key: '4' },
-    { image: 'https://i.pinimg.com/originals/99/03/9a/99039a6afb682e42c9a12556071b38c9.jpg', title: 'John Wick Chapter 3', released: '2019 ‧ Action/Thriller ‧ 2h 10m', key: '5' },
+    // { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9', title: 'Avengers: End Game', released: '2019 ‧ Action/Sci-fi ‧ 3h 2m', key: '1' },
+    // { image: 'https://www.spotlightstheatre.co.uk/wordpress/wp-content/uploads/2019/11/f_frozen2_header_mobile_18432_d258f93f.jpeg', title: 'Frozen II', released: '2019 ‧ Animation/Musical ‧ 1h 43m', key: '2' },
+    // { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxo7Naxu0tjuSEZ9_faYL--aWjx8V5TKr4q2YeenYKXXik-T5P', title: 'Alita: Battle Angel', released: '2019 ‧ Action/Sci-fi ‧ 2h 2m', key: '3' },
+    // { image: 'https://www.gstatic.com/tv/thumb/v22vodart/15879807/p15879807_v_v8_aa.jpg', title: 'The Irish Man', released: '2019 ‧ Crime/Drama ‧ 3h 30m', key: '4' },
+    // { image: 'https://i.pinimg.com/originals/99/03/9a/99039a6afb682e42c9a12556071b38c9.jpg', title: 'John Wick Chapter 3', released: '2019 ‧ Action/Thriller ‧ 2h 10m', key: '5' },
+  
+    {image:watching_image_list[0], title:watching_title_list[0],released: watching_release_date[0] ,key: watching_id_list[0] , desc: watching_overview_list[0]},
+    {image:watching_image_list[1], title:watching_title_list[1],released: watching_release_date[1] ,key: watching_id_list[1] , desc: watching_overview_list[1]},
+    {image:watching_image_list[2], title:watching_title_list[2],released: watching_release_date[2] ,key: watching_id_list[2] , desc: watching_overview_list[2]},
   ]);
 
   const [toWatch, setToWatch] = useState([
 
-    { image: 'https://www.spotlightstheatre.co.uk/wordpress/wp-content/uploads/2019/11/f_frozen2_header_mobile_18432_d258f93f.jpeg', title: 'Frozen II', released: '2019 ‧ Animation/Musical ‧ 1h 43m', key: '2' },
-    { image: 'https://www.gstatic.com/tv/thumb/v22vodart/15879807/p15879807_v_v8_aa.jpg', title: 'The Irish Man', released: '2019 ‧ Crime/Drama ‧ 3h 30m', key: '4' },
-    { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9', title: 'Avengers: End Game', released: '2019 ‧ Action/Sci-fi ‧ 3h 2m', key: '1' },
-    { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxo7Naxu0tjuSEZ9_faYL--aWjx8V5TKr4q2YeenYKXXik-T5P', title: 'Alita: Battle Angel', released: '2019 ‧ Action/Sci-fi ‧ 2h 2m', key: '3' },
-    { image: 'https://i.pinimg.com/originals/99/03/9a/99039a6afb682e42c9a12556071b38c9.jpg', title: 'John Wick Chapter 3', released: '2019 ‧ Action/Thriller ‧ 2h 10m', key: '5' },
+    // { image: 'https://www.spotlightstheatre.co.uk/wordpress/wp-content/uploads/2019/11/f_frozen2_header_mobile_18432_d258f93f.jpeg', title: 'Frozen II', released: '2019 ‧ Animation/Musical ‧ 1h 43m', key: '2' },
+    // { image: 'https://www.gstatic.com/tv/thumb/v22vodart/15879807/p15879807_v_v8_aa.jpg', title: 'The Irish Man', released: '2019 ‧ Crime/Drama ‧ 3h 30m', key: '4' },
+    // { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9', title: 'Avengers: End Game', released: '2019 ‧ Action/Sci-fi ‧ 3h 2m', key: '1' },
+    // { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxo7Naxu0tjuSEZ9_faYL--aWjx8V5TKr4q2YeenYKXXik-T5P', title: 'Alita: Battle Angel', released: '2019 ‧ Action/Sci-fi ‧ 2h 2m', key: '3' },
+    // { image: 'https://i.pinimg.com/originals/99/03/9a/99039a6afb682e42c9a12556071b38c9.jpg', title: 'John Wick Chapter 3', released: '2019 ‧ Action/Thriller ‧ 2h 10m', key: '5' },
+  
+    {image:watched_image_list[0], title:watched_title_list[0],released: watched_release_date[0] ,key: watched_id_list[0] , desc: watched_overview_list[0]},
+    {image:watched_image_list[1], title:watched_title_list[1],released: watched_release_date[1] ,key: watched_id_list[1] , desc: watched_overview_list[1]},
+    {image:watched_image_list[2], title:watched_title_list[2],released: watched_release_date[2] ,key: watched_id_list[2] , desc: watched_overview_list[2]},
   ]);
 
   const [watched, setWatched] = useState([
 
-    { image: 'https://www.gstatic.com/tv/thumb/v22vodart/15879807/p15879807_v_v8_aa.jpg', title: 'The Irish Man', released: '2019 ‧ Crime/Drama ‧ 3h 30m', key: '4' },
-    { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9', title: 'Avengers: End Game', released: '2019 ‧ Action/Sci-fi ‧ 3h 2m', key: '1' },
-    { image: 'https://www.spotlightstheatre.co.uk/wordpress/wp-content/uploads/2019/11/f_frozen2_header_mobile_18432_d258f93f.jpeg', title: 'Frozen II', released: '2019 ‧ Animation/Musical ‧ 1h 43m', key: '2' },
-    { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxo7Naxu0tjuSEZ9_faYL--aWjx8V5TKr4q2YeenYKXXik-T5P', title: 'Alita: Battle Angel', released: '2019 ‧ Action/Sci-fi ‧ 2h 2m', key: '3' },
-    { image: 'https://i.pinimg.com/originals/99/03/9a/99039a6afb682e42c9a12556071b38c9.jpg', title: 'John Wick Chapter 3', released: '2019 ‧ Action/Thriller ‧ 2h 10m', key: '5' },
+    // { image: 'https://www.gstatic.com/tv/thumb/v22vodart/15879807/p15879807_v_v8_aa.jpg', title: 'The Irish Man', released: '2019 ‧ Crime/Drama ‧ 3h 30m', key: '4' },
+    // { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9', title: 'Avengers: End Game', released: '2019 ‧ Action/Sci-fi ‧ 3h 2m', key: '1' },
+    // { image: 'https://www.spotlightstheatre.co.uk/wordpress/wp-content/uploads/2019/11/f_frozen2_header_mobile_18432_d258f93f.jpeg', title: 'Frozen II', released: '2019 ‧ Animation/Musical ‧ 1h 43m', key: '2' },
+    // { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxo7Naxu0tjuSEZ9_faYL--aWjx8V5TKr4q2YeenYKXXik-T5P', title: 'Alita: Battle Angel', released: '2019 ‧ Action/Sci-fi ‧ 2h 2m', key: '3' },
+    // { image: 'https://i.pinimg.com/originals/99/03/9a/99039a6afb682e42c9a12556071b38c9.jpg', title: 'John Wick Chapter 3', released: '2019 ‧ Action/Thriller ‧ 2h 10m', key: '5' },
+  
+    {image:to_watch_image_list[0], title:to_watch_title_list[0],released: to_watch_release_date[0] ,key: to_watch_id_list[0] , desc: to_watch_overview_list[0]},
+    {image:to_watch_image_list[1], title:to_watch_title_list[1],released: to_watch_release_date[1] ,key: to_watch_id_list[1] , desc: to_watch_overview_list[1]},
+    {image:to_watch_image_list[2], title:to_watch_title_list[2],released: to_watch_release_date[2] ,key: to_watch_id_list[2] , desc: to_watch_overview_list[2]},
   ]);
 
   // const [gallery, setgallery] = useState([
