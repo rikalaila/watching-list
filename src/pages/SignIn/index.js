@@ -42,7 +42,7 @@ const SignIn = ({ navigation }) => {
 
             <TextInput placeholder="Email" placeholderTextColor="white" style={styles.input} value={email} onChangeText={(value) => setEmail(value)} />
             <Gap height={24} />
-            <TextInput placeholder="Password" placeholderTextColor="blue" style={styles.input} value={password} onChangeText={(value) => setPassword(value)} secureTextEntry={true} />
+            <TextInput placeholder="Password" placeholderTextColor="white" style={styles.input} value={password} onChangeText={(value) => setPassword(value)} secureTextEntry={true} />
             <Gap height={50} />
             {/* <Button title="Sign Up" onPress={submit} /> */}
             <Button title="Sign In" onPress={submit} />
