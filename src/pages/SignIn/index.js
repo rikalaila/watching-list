@@ -3,6 +3,16 @@ import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { Input, Link, Button, Gap } from '../../components';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
+const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem('token', value)
+    } catch (e) {
+      // saving error
+    }
+  }
 
 const SignIn = ({ navigation }) => {
 
@@ -19,15 +29,15 @@ const SignIn = ({ navigation }) => {
 
         axios.post(`http://192.168.137.1:8000/auth/login`, data)
         .then((response) => {
-            console.log(response);
+            var json = JSON.parse(response.request._response);
+            console.log("token : " + json.token);
+            storeData(json.token);
         }, (error) => {
             console.log(error);
         });
-
+        
         navigation.replace('MainApp')
     }
-
-
 
     return (
         <View style={styles.page}>
